@@ -16,6 +16,13 @@ if (!$user) {
     die("<div style='text-align:center;color:red;'>User not found.</div>");
 }
 
+if ($user['username'] === '666') {
+    echo '<h1>I see you</h1>';
+    echo '<p>:)</p>';
+}
+
+
+
 $videos_stmt = $pdo->prepare("SELECT * FROM videos WHERE user_id = ? ORDER BY added_date DESC");
 $videos_stmt->execute([$user['id']]);
 $videos = $videos_stmt->fetchAll();
@@ -92,6 +99,10 @@ $videos = $videos_stmt->fetchAll();
         <p>No videos uploaded yet.</p>
     <?php endif; ?>
 </div>
+
+<?php include "footer.php"; ?>
+</body>
+</html>
 
 <?php include "footer.php"; ?>
 </body>
