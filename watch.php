@@ -73,6 +73,13 @@ if (!$video) {
 		</tbody></table>
 <?php include "header.php"?>
 
+<?php if ($video['removed'] == 1): ?>
+    <div style="text-align:center; color:red; font-weight:bold; font-size:18px; margin:50px 0;">
+        This video has been removed because it break our rules.
+    </div>
+<?php else: ?>
+                
+
 <div class="pageTitle"><?= htmlspecialchars($video['title'] ?? '') ?></div>
 
 
@@ -227,6 +234,11 @@ if (!empty($comments)) {
 </table>
 
 <br>
+
+<?php include "footer.php"; ?>
+</body>
+</html>
+<?php endif; ?>
 
 <?php include "footer.php"; ?>
 </body>
