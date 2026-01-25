@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : mar. 13 jan. 2026 à 21:32
+-- Hôte : fdb1033.atspace.me
+-- Généré le : dim. 25 jan. 2026 à 16:07
 -- Version du serveur : 8.0.32
--- Version de PHP : 8.1.33
+-- Version de PHP : 8.1.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `bruh`
 --
-CREATE DATABASE IF NOT EXISTS `powtube` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `powtube`;
 
 -- --------------------------------------------------------
 
@@ -56,12 +54,6 @@ CREATE TABLE `favorites` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Déchargement des données de la table `favorites`
---
-
-
-
 -- --------------------------------------------------------
 
 --
@@ -91,6 +83,7 @@ CREATE TABLE `tags` (
 --
 -- Déchargement des données de la table `tags`
 --
+
 
 
 -- --------------------------------------------------------
@@ -131,7 +124,8 @@ CREATE TABLE `videos` (
   `description` text,
   `tags` varchar(255) DEFAULT NULL,
   `views` int UNSIGNED DEFAULT '0',
-  `comments` int UNSIGNED DEFAULT '0'
+  `comments` int UNSIGNED DEFAULT '0',
+  `removed` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -195,7 +189,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `comment_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT pour la table `favorites`
@@ -219,13 +213,13 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT pour la table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=932;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=990;
 
 --
 -- Contraintes pour les tables déchargées
